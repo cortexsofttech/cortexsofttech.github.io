@@ -1,0 +1,168 @@
+:root {
+    --bg: #f4f4f8;
+    --text: #222;
+    --card: #ffffff;
+    --primary: #ff2f92;
+}
+
+body.dark {
+    --bg: #121212;
+    --text: #f5f5f5;
+    --card: #1e1e1e;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    transition: 0.3s;
+}
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 80px;
+    background: #1b1536;
+    color: white;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.theme-btn {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    color: white;
+}
+
+/* HERO */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 80px;
+    background: radial-gradient(circle at right, #ff2f92, #3a1c71);
+    color: white;
+}
+
+.hero h1 {
+    font-size: 48px;
+}
+
+.hero h2 {
+    margin: 10px 0;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 30px;
+    background: var(--primary);
+    color: white;
+    border-radius: 25px;
+    text-decoration: none;
+}
+
+/* SECTIONS */
+section {
+    padding: 80px;
+}
+
+.services,
+.projects,
+.about,
+.contact {
+    text-align: center;
+}
+
+.service-grid,
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.service-card,
+.project-card {
+    background: var(--card);
+    padding: 40px;
+    border-radius: 15px;
+}
+
+.project-card {
+    border: 2px dashed #ccc;
+}
+
+.why-us {
+    background: #2b1c4d;
+    color: white;
+    text-align: center;
+}
+
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.contact form {
+    max-width: 500px;
+    margin: auto;
+}
+
+.contact input,
+.contact textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+}
+
+.contact button {
+    background: var(--primary);
+    border: none;
+    padding: 12px 30px;
+    color: white;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+footer {
+    background: #1b1536;
+    color: white;
+    text-align: center;
+    padding: 30px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .service-grid,
+    .project-grid,
+    .why-grid {
+        grid-template-columns: 1fr;
+    }
+}
