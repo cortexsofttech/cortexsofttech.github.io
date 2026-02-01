@@ -195,12 +195,27 @@ section {
 /* ===============================
    ABOUT
 ================================ */
-.about p {
-    max-width: 800px;
+.about {
+    padding: 80px 20px;
+    max-width: 900px;
     margin: auto;
-    line-height: 1.7;
-    opacity: 0.9;
+    text-align: center;
 }
+
+.about h2 {
+    margin-bottom: 25px;
+}
+
+.about p {
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.about .muted {
+    opacity: 0.8;
+    font-size: 15px;
+}
+
 
 /* ===============================
    CONTACT
