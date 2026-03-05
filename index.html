@@ -6,279 +6,192 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="CortexSoft Technology is an AI & software development company building intelligent, scalable digital solutions.">
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-    <style>
-        /* ── Project Card Enhancements ── */
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.8rem;
-            margin-top: 2rem;
-        }
-
-        .project-card {
-            background: var(--card-bg, #1a1a2e);
-            border: 1px solid var(--border, rgba(255,255,255,0.08));
-            border-radius: 16px;
-            padding: 1.8rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, #6c63ff, #00d4ff);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 40px rgba(108, 99, 255, 0.15);
-            border-color: rgba(108, 99, 255, 0.4);
-        }
-
-        .project-card:hover::before {
-            opacity: 1;
-        }
-
-        .project-card.coming-soon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 180px;
-            color: var(--muted, #888);
-            font-style: italic;
-            border: 1px dashed var(--border, rgba(255,255,255,0.12));
-            background: transparent;
-        }
-
-        .project-card.coming-soon:hover {
-            transform: none;
-            box-shadow: none;
-            border-color: rgba(255,255,255,0.18);
-        }
-
-        .project-card.coming-soon::before {
-            display: none;
-        }
-
-        /* Live project card specifics */
-        .project-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.4rem;
-            margin-bottom: 1rem;
-        }
-
-        .project-badge {
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 0.06em;
-            padding: 0.2rem 0.6rem;
-            border-radius: 20px;
-            background: rgba(108, 99, 255, 0.15);
-            color: #a89cff;
-            border: 1px solid rgba(108, 99, 255, 0.25);
-            text-transform: uppercase;
-        }
-
-        .project-badge.blue {
-            background: rgba(0, 212, 255, 0.12);
-            color: #5ee7ff;
-            border-color: rgba(0, 212, 255, 0.2);
-        }
-
-        .project-badge.green {
-            background: rgba(0, 255, 163, 0.1);
-            color: #4dffc6;
-            border-color: rgba(0, 255, 163, 0.2);
-        }
-
-        .project-title-row {
-            display: flex;
-            align-items: center;
-            gap: 0.7rem;
-            margin-bottom: 0.6rem;
-        }
-
-        .project-icon {
-            font-size: 1.6rem;
-            line-height: 1;
-        }
-
-        .project-card h3 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin: 0;
-            color: var(--heading, #f0f0f0);
-            letter-spacing: -0.01em;
-        }
-
-        .project-card p {
-            font-size: 0.9rem;
-            line-height: 1.65;
-            color: var(--text-muted, #aaa);
-            margin-bottom: 1.1rem;
-        }
-
-        .project-features {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 1.3rem 0;
-            display: flex;
-            flex-direction: column;
-            gap: 0.35rem;
-        }
-
-        .project-features li {
-            font-size: 0.82rem;
-            color: var(--text-muted, #999);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .project-features li::before {
-            content: '▸';
-            color: #6c63ff;
-            font-size: 0.7rem;
-        }
-
-        .project-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: #6c63ff;
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            border: 1px solid rgba(108, 99, 255, 0.35);
-            border-radius: 8px;
-            transition: background 0.2s ease, color 0.2s ease, gap 0.2s ease;
-        }
-
-        .project-link:hover {
-            background: rgba(108, 99, 255, 0.15);
-            color: #a89cff;
-            gap: 0.65rem;
-        }
-
-        .project-live-dot {
-            display: inline-block;
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-            background: #00ff99;
-            box-shadow: 0 0 6px #00ff99;
-            animation: pulse-dot 2s infinite;
-            margin-right: 2px;
-        }
-
-        @keyframes pulse-dot {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(1.3); }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="dark">
 
 <!-- HEADER -->
-<header class="navbar">
-   <div class="logo">
-    <img src="assets/images/logo4.png" alt="CortexSoft Logo">
-    <span>CortexSoft</span>
-</div>
-
+<header class="navbar" id="navbar">
+    <div class="logo">
+        <img src="assets/images/logo4.png" alt="CortexSoft Logo">
+        <span>CortexSoft</span>
+    </div>
     <nav>
         <a href="#home">Home</a>
         <a href="#services">Services</a>
-        <a href="#projects">Our Projects</a>
+        <a href="#projects">Projects</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
-        <button id="themeToggle" class="theme-btn">🌙</button>
+        <button id="themeToggle" class="theme-btn" aria-label="Toggle theme">🌙</button>
     </nav>
+    <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+    </button>
 </header>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+    <a href="#home" class="mobile-link">Home</a>
+    <a href="#services" class="mobile-link">Services</a>
+    <a href="#projects" class="mobile-link">Projects</a>
+    <a href="#about" class="mobile-link">About</a>
+    <a href="#contact" class="mobile-link">Contact</a>
+</div>
 
 <main>
 
 <!-- HERO -->
 <section id="home" class="hero">
-    <div class="hero-content">
-        <h1>CortexSoft Technology</h1>
-        <h2>AI & Software Development Company</h2>
-        <p>
-            We help businesses build intelligent, scalable, and modern digital products
-            using AI, data, and cutting-edge technologies.
-        </p>
-        <a href="#contact" class="btn">Get in Touch</a>
+    <div class="hero-bg">
+        <div class="grid-overlay"></div>
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
     </div>
-    <div class="hero-visual">🚀</div>
+    <div class="hero-content">
+        <div class="hero-tag">
+            <span class="tag-dot"></span>
+            AI-First Technology Company
+        </div>
+        <h1>
+            We Build<br>
+            <span class="gradient-text">Intelligent</span><br>
+            Digital Products
+        </h1>
+        <p>
+            From AI systems to IoT devices — CortexSoft engineers
+            scalable, production-grade software that solves real business problems.
+        </p>
+        <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">Start a Project</a>
+            <a href="#projects" class="btn btn-ghost">See Our Work →</a>
+        </div>
+        <div class="hero-stats">
+            <div class="stat"><strong>5+</strong><span>Services</span></div>
+            <div class="stat-divider"></div>
+            <div class="stat"><strong>AI</strong><span>First Approach</span></div>
+            <div class="stat-divider"></div>
+            <div class="stat"><strong>100%</strong><span>Custom Built</span></div>
+        </div>
+    </div>
+    <div class="hero-visual">
+        <div class="code-block">
+            <div class="code-bar">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="code-label">cortex.ai</span>
+            </div>
+            <pre><code><span class="c-purple">import</span> <span class="c-blue">CortexAI</span> <span class="c-purple">from</span> <span class="c-green">'@cortex/sdk'</span>
+
+<span class="c-purple">const</span> <span class="c-blue">model</span> <span class="c-white">=</span> <span class="c-purple">new</span> <span class="c-blue">CortexAI</span><span class="c-white">({</span>
+  <span class="c-yellow">mode</span><span class="c-white">:</span> <span class="c-green">'intelligent'</span><span class="c-white">,</span>
+  <span class="c-yellow">scale</span><span class="c-white">:</span> <span class="c-green">'production'</span>
+<span class="c-white">})</span>
+
+<span class="c-purple">await</span> model<span class="c-white">.</span><span class="c-blue">deploy</span><span class="c-white">()</span>
+<span class="c-comment">// ✓ System online</span></code></pre>
+        </div>
+    </div>
 </section>
 
 <!-- SERVICES -->
 <section id="services" class="services">
-    <h2>Our Services</h2>
+    <div class="section-header">
+        <div class="section-tag">What We Do</div>
+        <h2>Our Services</h2>
+        <p>End-to-end technology solutions built for scale and performance.</p>
+    </div>
 
     <div class="service-grid">
-        <div class="service-card">
-            <span>🤖</span>
+        <div class="service-card" style="--i:0">
+            <div class="service-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 6v6l4 2"/><circle cx="18" cy="6" r="3"/></svg>
+            </div>
             <h3>AI & Machine Learning</h3>
-            <p>Smart AI solutions that solve real business problems.</p>
+            <p>Intelligent models, NLP pipelines, computer vision, and predictive analytics tuned for production.</p>
+            <div class="service-tags">
+                <span>PyTorch</span><span>TensorFlow</span><span>LLMs</span>
+            </div>
         </div>
 
-        <div class="service-card">
-            <span>💻</span>
+        <div class="service-card" style="--i:1">
+            <div class="service-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            </div>
             <h3>Software Development</h3>
-            <p>Custom web and enterprise software applications.</p>
+            <p>Full-stack web applications, APIs, and enterprise systems built with clean, maintainable code.</p>
+            <div class="service-tags">
+                <span>React</span><span>Node.js</span><span>Python</span>
+            </div>
         </div>
 
-        <div class="service-card">
-            <span>📊</span>
+        <div class="service-card" style="--i:2">
+            <div class="service-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            </div>
             <h3>Data Analytics</h3>
-            <p>Interactive dashboards and data-driven insights.</p>
+            <p>Transform raw data into business insights with real-time dashboards and advanced visualizations.</p>
+            <div class="service-tags">
+                <span>Pandas</span><span>Tableau</span><span>SQL</span>
+            </div>
         </div>
 
-        <div class="service-card">
-            <span>⚙️</span>
+        <div class="service-card" style="--i:3">
+            <div class="service-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+            </div>
+            <h3>IoT & Embedded Systems</h3>
+            <p>Smart hardware solutions — from ESP32 prototypes to full IoT deployments with BLE, Wi-Fi, and cloud sync.</p>
+            <div class="service-tags">
+                <span>ESP32</span><span>BLE</span><span>MQTT</span>
+            </div>
+        </div>
+
+        <div class="service-card" style="--i:4">
+            <div class="service-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
             <h3>Business Automation</h3>
-            <p>Automate workflows to improve efficiency and reduce cost.</p>
+            <p>Automate repetitive workflows, integrate third-party tools, and cut operational overhead significantly.</p>
+            <div class="service-tags">
+                <span>n8n</span><span>APIs</span><span>Bots</span>
+            </div>
+        </div>
+
+        <div class="service-card service-cta" style="--i:5">
+            <div class="cta-inner">
+                <span class="cta-icon">💡</span>
+                <h3>Have a custom project?</h3>
+                <p>Let's talk about what we can build together.</p>
+                <a href="#contact" class="btn btn-primary btn-sm">Get in Touch</a>
+            </div>
         </div>
     </div>
 </section>
 
 <!-- PROJECTS -->
 <section id="projects" class="projects">
-    <h2>Our Projects</h2>
-    <p class="muted">
-        Real-world projects built by our team — from embedded hardware to intelligent software.
-    </p>
+    <div class="section-header">
+        <div class="section-tag">What We've Built</div>
+        <h2>Our Projects</h2>
+        <p>Real-world products — from embedded hardware to intelligent software.</p>
+    </div>
 
     <div class="project-grid">
 
-        <!-- CtrlX Project -->
-        <div class="project-card">
+        <div class="project-card featured">
             <div class="project-meta">
                 <span class="project-badge">ESP32</span>
                 <span class="project-badge blue">BLE 4.2</span>
-                <span class="project-badge">Arduino / C++</span>
-                <span class="project-badge green">Live</span>
+                <span class="project-badge">C++</span>
+                <span class="project-badge green"><span class="live-dot"></span>Live</span>
             </div>
             <div class="project-title-row">
                 <span class="project-icon">🎮</span>
                 <h3>CtrlX</h3>
             </div>
-            <p>
-                A wireless Bluetooth HID controller built on ESP32 with an OLED display.
-                Five input modes — Mouse, Presentation, Gaming, Media, and System control —
-                with BLE 4.2 connectivity and smart deep sleep.
-            </p>
+            <p>A wireless Bluetooth HID controller built on ESP32 with an OLED display. Five input modes — Mouse, Presentation, Gaming, Media, and System control — with zero-latency BLE 4.2 and smart deep sleep.</p>
             <ul class="project-features">
                 <li>5 switchable modes via joystick &amp; buttons</li>
                 <li>BLE HID — Keyboard + Mouse combo</li>
@@ -287,70 +200,143 @@
                 <li>Battery monitoring via ADC</li>
             </ul>
             <a href="https://ajaykumarjaganathan.github.io/CrtlX/" target="_blank" rel="noopener" class="project-link">
-                <span class="project-live-dot"></span> View Project →
+                View Project →
             </a>
         </div>
 
-        <!-- Coming Soon cards -->
-        <div class="project-card coming-soon">Coming Soon</div>
-        <div class="project-card coming-soon">Coming Soon</div>
+        <div class="project-card coming-soon">
+            <div class="cs-inner">
+                <span>⚡</span>
+                <p>Next Project</p>
+                <small>Coming Soon</small>
+            </div>
+        </div>
 
+        <div class="project-card coming-soon">
+            <div class="cs-inner">
+                <span>🧠</span>
+                <p>AI Project</p>
+                <small>Coming Soon</small>
+            </div>
+        </div>
     </div>
 </section>
 
 <!-- WHY US -->
 <section class="why-us">
-    <h2>Why Choose CortexSoft?</h2>
-
-    <div class="why-grid">
-        <div>✔ Scalable & Secure Systems</div>
-        <div>✔ AI-First Development</div>
-        <div>✔ Clean & Maintainable Code</div>
-        <div>✔ Reliable Technical Support</div>
+    <div class="why-inner">
+        <div class="why-text">
+            <div class="section-tag">Why CortexSoft</div>
+            <h2>Built different.<br>Shipped right.</h2>
+            <p>We're a lean, focused team that moves fast without breaking things. Every product we ship is production-ready, scalable, and built to last.</p>
+            <a href="#contact" class="btn btn-primary">Work With Us</a>
+        </div>
+        <div class="why-grid">
+            <div class="why-item">
+                <div class="why-icon">⚡</div>
+                <div>
+                    <h4>Scalable & Secure</h4>
+                    <p>Architecture designed to grow with your business</p>
+                </div>
+            </div>
+            <div class="why-item">
+                <div class="why-icon">🤖</div>
+                <div>
+                    <h4>AI-First Development</h4>
+                    <p>Intelligence baked in from day one, not bolted on later</p>
+                </div>
+            </div>
+            <div class="why-item">
+                <div class="why-icon">🧹</div>
+                <div>
+                    <h4>Clean Code</h4>
+                    <p>Maintainable, documented, and built for handover</p>
+                </div>
+            </div>
+            <div class="why-item">
+                <div class="why-icon">🛠</div>
+                <div>
+                    <h4>Reliable Support</h4>
+                    <p>We stay with you after launch — always</p>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
 <!-- ABOUT -->
 <section id="about" class="about">
-    <h2>About Us</h2>
-
-    <p>
-        <strong>CortexSoft Technology</strong> is a technology startup focused on delivering
-        intelligent, AI-powered software solutions. We combine strong engineering
-        expertise with real-world business understanding to build scalable systems
-        that actually work in production environments.
-    </p>
-
-    <p>
-        Founded and led by <strong>Ajaykumar</strong>, CortexSoft is driven by innovation,
-        clean architecture, and an AI-first development mindset.
-    </p>
-
-    <p class="muted">
-        <strong>Founder & CEO:</strong> Ajaykumar
-    </p>
+    <div class="about-inner">
+        <div class="about-badge">EST. 2024</div>
+        <h2>About CortexSoft</h2>
+        <p>
+            <strong>CortexSoft Technology</strong> is a technology startup focused on delivering
+            intelligent, AI-powered software solutions. We combine strong engineering
+            expertise with real-world business understanding to build scalable systems
+            that actually work in production environments.
+        </p>
+        <p>
+            Founded and led by <strong>Ajaykumar</strong>, CortexSoft is driven by innovation,
+            clean architecture, and an AI-first development mindset — spanning web, AI, data, and IoT.
+        </p>
+        <div class="founder-card">
+            <div class="founder-avatar">AK</div>
+            <div>
+                <strong>Ajaykumar</strong>
+                <span>Founder & CEO, CortexSoft Technology</span>
+            </div>
+        </div>
+    </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact" class="contact">
-    <h2>Contact Us</h2>
-
-    <form id="contact-form">
-        <input type="text" name="from_name" placeholder="Your Name" required>
-        <input type="email" name="from_email" placeholder="Your Email" required>
-        <textarea name="message" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
-    </form>
-
-    <p id="status"></p>
+    <div class="contact-inner">
+        <div class="contact-info">
+            <div class="section-tag">Let's Talk</div>
+            <h2>Start a Project</h2>
+            <p>Have an idea or a problem to solve? We'd love to hear about it. Drop us a message and we'll get back to you within 24 hours.</p>
+            <div class="contact-detail">
+                <span>📧</span>
+                <a href="mailto:cortexsofttech@gmail.com">cortexsofttech@gmail.com</a>
+            </div>
+        </div>
+        <div class="contact-form-wrap">
+            <form id="contact-form">
+                <div class="form-group">
+                    <input type="text" name="from_name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="from_email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea name="message" placeholder="Tell us about your project..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+                <p id="status"></p>
+            </form>
+        </div>
+    </div>
 </section>
 
 </main>
 
 <!-- FOOTER -->
 <footer>
-    <p>© 2026 CortexSoft Technology</p>
-    <p>Email: cortexsofttech@gmail.com</p>
+    <div class="footer-inner">
+        <div class="footer-logo">
+            <img src="assets/images/logo4.png" alt="CortexSoft Logo">
+            <span>CortexSoft</span>
+        </div>
+        <p class="footer-tagline">Building intelligent systems for a connected world.</p>
+        <div class="footer-links">
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <p class="footer-copy">© 2026 CortexSoft Technology · cortexsofttech@gmail.com</p>
+    </div>
 </footer>
 
 <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
