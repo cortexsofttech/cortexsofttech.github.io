@@ -8,12 +8,20 @@
     --primary: #ff2f92;
     --nav-bg: #1b1536;
     --section-dark: #2b1c4d;
+    --border: rgba(0, 0, 0, 0.1);
+    --text-muted: #666;
+    --card-bg: #ffffff;
+    --heading: #111;
 }
 
 body.dark {
     --bg: #121212;
     --text: #f5f5f5;
     --card: #1e1e1e;
+    --border: rgba(255, 255, 255, 0.08);
+    --text-muted: #aaa;
+    --card-bg: #1a1a2e;
+    --heading: #f0f0f0;
 }
 
 /* ===============================
@@ -54,9 +62,14 @@ body {
     text-decoration: none;
     margin-left: 20px;
     font-weight: 500;
+    transition: opacity 0.2s ease;
 }
 
-/* LOGO (IMAGE + TEXT) */
+.navbar a:hover {
+    opacity: 0.75;
+}
+
+/* LOGO */
 .logo {
     display: flex;
     align-items: center;
@@ -130,6 +143,12 @@ body.dark .logo span {
     border-radius: 25px;
     text-decoration: none;
     font-weight: 600;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
 }
 
 /* ===============================
@@ -146,33 +165,245 @@ section {
     text-align: center;
 }
 
+section h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.muted {
+    opacity: 0.7;
+    font-size: 15px;
+    margin-top: 0.4rem;
+}
+
 /* ===============================
-   SERVICES & PROJECTS
+   SERVICES
 ================================ */
-.service-grid,
-.project-grid {
+.service-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 25px;
     margin-top: 40px;
 }
 
-.service-card,
-.project-card {
+.service-card {
     background: var(--card);
     padding: 40px;
     border-radius: 15px;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.service-card:hover,
-.project-card:hover {
+.service-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
 }
 
+.service-card span {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 0.75rem;
+}
+
+/* ===============================
+   PROJECTS
+================================ */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.8rem;
+    margin-top: 2rem;
+    text-align: left;
+}
+
+/* Live project card */
 .project-card {
-    border: 2px dashed #ccc;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.8rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #6c63ff, #00d4ff);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(108, 99, 255, 0.15);
+    border-color: rgba(108, 99, 255, 0.4);
+}
+
+.project-card:hover::before {
+    opacity: 1;
+}
+
+/* Coming soon cards */
+.project-card.coming-soon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 180px;
+    color: var(--text-muted);
+    font-style: italic;
+    font-weight: 500;
+    border: 1px dashed var(--border);
+    background: transparent;
+}
+
+.project-card.coming-soon:hover {
+    transform: none;
+    box-shadow: none;
+    border-color: rgba(108, 99, 255, 0.2);
+}
+
+.project-card.coming-soon::before {
+    display: none;
+}
+
+/* Project card internals */
+.project-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1rem;
+}
+
+.project-badge {
+    font-size: 0.7rem;
     font-weight: 600;
+    letter-spacing: 0.06em;
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+    background: rgba(108, 99, 255, 0.15);
+    color: #6c63ff;
+    border: 1px solid rgba(108, 99, 255, 0.25);
+    text-transform: uppercase;
+}
+
+body.dark .project-badge {
+    color: #a89cff;
+}
+
+.project-badge.blue {
+    background: rgba(0, 212, 255, 0.12);
+    color: #0099bb;
+    border-color: rgba(0, 212, 255, 0.2);
+}
+
+body.dark .project-badge.blue {
+    color: #5ee7ff;
+}
+
+.project-badge.green {
+    background: rgba(0, 200, 120, 0.12);
+    color: #008855;
+    border-color: rgba(0, 200, 120, 0.2);
+}
+
+body.dark .project-badge.green {
+    color: #4dffc6;
+}
+
+.project-title-row {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    margin-bottom: 0.6rem;
+}
+
+.project-icon {
+    font-size: 1.6rem;
+    line-height: 1;
+}
+
+.project-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0;
+    color: var(--heading);
+    letter-spacing: -0.01em;
+}
+
+.project-card p {
+    font-size: 0.9rem;
+    line-height: 1.65;
+    color: var(--text-muted);
+    margin-bottom: 1.1rem;
+}
+
+.project-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.3rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.project-features li {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.project-features li::before {
+    content: '▸';
+    color: #6c63ff;
+    font-size: 0.7rem;
+    flex-shrink: 0;
+}
+
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #6c63ff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border: 1px solid rgba(108, 99, 255, 0.35);
+    border-radius: 8px;
+    transition: background 0.2s ease, color 0.2s ease, gap 0.2s ease;
+}
+
+.project-link:hover {
+    background: rgba(108, 99, 255, 0.12);
+    color: #4a40e0;
+    gap: 0.65rem;
+}
+
+body.dark .project-link:hover {
+    color: #a89cff;
+    background: rgba(108, 99, 255, 0.18);
+}
+
+.project-live-dot {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #00cc77;
+    box-shadow: 0 0 6px #00cc77;
+    animation: pulse-dot 2s infinite;
+    flex-shrink: 0;
+}
+
+@keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: 0.5; transform: scale(1.4); }
 }
 
 /* ===============================
@@ -216,7 +447,6 @@ section {
     font-size: 15px;
 }
 
-
 /* ===============================
    CONTACT
 ================================ */
@@ -232,6 +462,15 @@ section {
     margin: 10px 0;
     border-radius: 8px;
     border: 1px solid #ccc;
+    background: var(--card);
+    color: var(--text);
+    transition: border-color 0.2s ease;
+}
+
+.contact input:focus,
+.contact textarea:focus {
+    outline: none;
+    border-color: var(--primary);
 }
 
 .contact textarea {
@@ -247,6 +486,24 @@ section {
     border-radius: 25px;
     cursor: pointer;
     font-weight: 600;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.contact button:hover:not(:disabled) {
+    opacity: 0.88;
+    transform: translateY(-2px);
+}
+
+.contact button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+#status {
+    margin-top: 12px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    min-height: 1.2em;
 }
 
 /* ===============================
@@ -258,6 +515,7 @@ footer {
     text-align: center;
     padding: 30px;
     font-size: 14px;
+    line-height: 1.8;
 }
 
 /* ===============================
@@ -278,6 +536,7 @@ footer {
 
     .hero {
         flex-direction: column;
+        padding: 60px 25px;
         text-align: center;
     }
 
@@ -285,18 +544,38 @@ footer {
         max-width: 100%;
     }
 
-    .hero-visual {
-        margin-top: 30px;
-        font-size: 100px;
+    .hero h1 {
+        font-size: 2rem;
     }
 
-    .service-grid,
-    .project-grid,
+    .hero-visual {
+        margin-top: 30px;
+        font-size: 80px;
+    }
+
+    .service-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+
     .why-grid {
         grid-template-columns: 1fr;
     }
 
     section {
         padding: 60px 25px;
+    }
+}
+
+@media (max-width: 500px) {
+    .service-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 1.7rem;
     }
 }
